@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "**/*.cs.meta": true,
+        "**/*.meta": true
+    },
+    "dotnet.preferCSharpExtension": true
+}
