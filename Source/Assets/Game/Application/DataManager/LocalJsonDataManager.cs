@@ -6,6 +6,7 @@ using Game.Application.Interface;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
+using UnityApp = UnityEngine.Application;
 
 namespace Game.Application.DataManager
 {
@@ -17,7 +18,7 @@ namespace Game.Application.DataManager
 
 		public LocalJsonDataManager(string fileName = "appdata.json")
 		{
-			_dataFilePath = Path.Combine(Application.persistentDataPath, fileName);
+			_dataFilePath = Path.Combine(UnityApp.persistentDataPath, fileName);
 			LoadFromDisk();
 		}
 
