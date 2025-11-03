@@ -25,7 +25,8 @@ namespace Game.Application.Feature.Auth.Login
 			{
 				username = input.username,
 				password = input.password,
-				rememberMe = true
+				rememberMe = true,
+                connectionId = Guid.NewGuid().ToString()
 			};
 
 			var (resp, status) = await _restfulService.Post<ApiResponse<string>>(url, body);
