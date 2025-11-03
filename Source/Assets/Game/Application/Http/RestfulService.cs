@@ -13,10 +13,11 @@ using Game.Application.Interface;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
+using Game.Application.Base;
 
 namespace Game.Application.Http
 {
-    public class RestfulService : IRestfulService
+    public class RestfulService : Singleton<RestfulService>, IRestfulService
     {
         public async Task<(bool, HttpStatusCode)> Delete(
             string url,

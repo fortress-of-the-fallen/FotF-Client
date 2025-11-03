@@ -7,14 +7,17 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityApp = UnityEngine.Application;
+using Game.Application.Base;
 
 namespace Game.Application.DataManager
 {
-	public class LocalJsonDataManager : IDataManager
+	public class LocalJsonDataManager : Singleton<LocalJsonDataManager>, IDataManager
 	{
 		private readonly string _dataFilePath;
 		private readonly object _sync = new object();
 		private Dictionary<string, JToken> _store = new Dictionary<string, JToken>(StringComparer.Ordinal);
+
+		public LocalJsonDataManager() : this("appdata.json") { }
 
 		public LocalJsonDataManager(string fileName = "appdata.json")
 		{

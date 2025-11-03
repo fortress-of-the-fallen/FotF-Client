@@ -10,11 +10,12 @@ namespace Game.Domain.Constant
         public static readonly string PostTestUrl;
         public static readonly string DelayTestUrl;
 
+        private static readonly string _devUrl = "https://preferably-upright-walleye.ngrok-free.app";
+        private static readonly string _prodUrl = "https://preferably-upright-walleye.ngrok-free.app";
+
         static ConfigConstant()
         {
-            // var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-            Url = Env == "Development" ? "http://localhost:3000" : "https://preferably-upright-walleye.ngrok-free.app";
+            Url = Env == "Development" ? _devUrl : _prodUrl;
             TodoTestUrl = "https://jsonplaceholder.typicode.com/todos/1";
             PostTestUrl = "https://httpbin.org/post";
             DelayTestUrl = "https://httpbin.org/delay/5";
