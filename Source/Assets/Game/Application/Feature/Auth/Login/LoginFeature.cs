@@ -26,11 +26,12 @@ namespace Game.Application.Feature.Auth.Login
 				username = input.username,
 				password = input.password,
 				rememberMe = true,
-                connectionId = Guid.NewGuid().ToString()
+                connectionId = "abcd"
 			};
 
 			var (resp, status) = await _restfulService.Post<ApiResponse<string>>(url, body);
-			if (status == HttpStatusCode.OK && resp != null && resp.success)
+			var isHttpSuccess = (int)status >= 200 && (int)status < 300;
+			if (isHttpSuccess && resp != null && resp.success)
 			{
 				if (!string.IsNullOrEmpty(resp.result))
 				{
